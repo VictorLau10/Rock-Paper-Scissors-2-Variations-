@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class MyProgram
+{
+    public static void main(String[] args)
+    {
+        Scanner scan = new Scanner (System.in);
+        System.out.println("Rock, paper, scissors? ");
+        String user = scan.nextLine();
+        
+        int random = (int) (Math.random() * 3) + 1;
+        
+        if (random == 1)
+        {
+            System.out.println("User wins!"); 
+        }
+        else if (random == 2)
+        {
+            System.out.println("Computer wins!");
+        }
+        else if (random == 3)
+        {
+            System.out.println("Tie.");
+        }
+    }
+}
