@@ -1,0 +1,78 @@
+import java.util.Scanner;
+
+public class RockPaperScissors
+{
+    private static final String USER_PLAYER = "User wins!";
+    private static final String COMPUTER_PLAYER = "Computer wins!";
+    private static final String TIE = "Tie";
+      
+    public static void main(String[] args)
+    {
+        System.out.println("Rock, paper, or scissors?");
+        Scanner scanner = new Scanner (System.in);
+        String userChoice = scanner.nextLine();
+        
+        while (true)
+        {
+            int comp = (int) (Math.random() * 3) + 1;
+            String compChoice = "";
+            if (comp == 1)
+            {
+                compChoice += "rock";
+            }
+            else if (comp == 2)
+            {
+                compChoice += "paper";
+            }
+            else if (comp == 3)
+            {
+                compChoice += "scissors";
+            }
+            System.out.println("User: " + userChoice);
+            System.out.println("Computer: " + compChoice);
+            System.out.println(getWinner(userChoice, compChoice));
+            Scanner scan = new Scanner (System.in);
+            System.out.println();
+            System.out.println("Rock, paper, or scissors?: ");
+            userChoice = scan.nextLine();
+            
+            if (userChoice.length() == 0)
+            {
+                break;
+            }
+        }
+        System.out.println("Thanks for playing! ");
+    }  
+    
+    private static String getWinner(String user, String computer)
+    {
+        String USER_PLAYER = "User wins!";
+        String COMPUTER_PLAYER = "Computer wins!";
+        String TIE = "Tie";
+    
+        // Your code here
+        
+        // User Wins
+        if (user.equals("rock") && computer.equals("scissors"))
+        {
+            return USER_PLAYER;
+        }
+        if (user.equals("paper") && computer.equals("rock"))
+        {
+            return USER_PLAYER;
+        }
+        if (user.equals("scissors") && computer.equals("paper"))
+        {
+            return USER_PLAYER;
+        }
+        
+        // Tie
+        if (user.equals(computer))
+        {
+            return TIE;
+        }
+        
+        // Computer Wins
+        return COMPUTER_PLAYER;
+    }
+}
